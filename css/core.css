@@ -1,6 +1,10 @@
 /* core css file for the goalpro app */
 
 body {
-	background-color: #FFF2E7;
+	background-color: #393939;
 	padding-top: 70px;
+}
+
+img {
+	max-width: 100%;
 }
