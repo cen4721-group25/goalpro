@@ -3,181 +3,186 @@
 
 <head>
 	<title> GoalPro </title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-	<link rel="stylesheet" href="css/core.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <link rel="stylesheet" href="css/core.css" />
+    <script src="controller/controller.js"></script>
 </head>
 
 
-<body> 
+<body ng-app="app"> 
+	<div ng-controller="MainCtrl">
 
-<nav class="navbar navbar-default navbar-fixed-top goalpronav">
+	<nav class="navbar navbar-default navbar-fixed-top goalpronav">
+		<div class="container">
+			<ul class="nav nav-tabs">
+			  <li role="presentation" class="active"><a href="#">Home</a></li>
+			  <li role="presentation"><a href="groups.html">Groups</a></li>
+			  <li role="presentation"><a href="#">Task Board</a></li>
+			  <li role="presentation"><a href="#">Profile</a></li>
+			  <li role="presentation"><a href="#">Settings</a></li>
+			</ul>
+		</div>
+	</nav>
+
 	<div class="container">
-		<ul class="nav nav-tabs">
-		  <li role="presentation" class="active"><a href="#">Home</a></li>
-		  <li role="presentation"><a href="groups.html">Groups</a></li>
-		  <li role="presentation"><a href="#">Task Board</a></li>
-		  <li role="presentation"><a href="#">Profile</a></li>
-		  <li role="presentation"><a href="#">Settings</a></li>
-		</ul>
+		<!-- First column --> 
+		<div class="col-md-4">
+			<!-- Progress Panel --> 
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Progress</h3>
+			  </div>
+			  <div class="panel-body">
+			    <img src = http://www.conceptdraw.com/samples/resource/images/solutions/project-management-diagrams/Project-Management-Release-Burndown-Chart-Example.png>
+			  </div>
+			</div>
+
+			<!-- Reminders Panel --> 
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Reminders</h3>
+			  </div>
+			  <div class="panel-body">
+			    <ul class="list-group">
+			    	<li class="list-group-item alert-danger"> <b>Homework 1, Cryptology</b> Due 6:00 PM <span class="glyphicon glyphicon-exclamation-sign"> </span> </li>
+			    	<li class="list-group-item alert-danger"> <b>Turn in service hours form</b> Due 11:59 PM <span class="glyphicon glyphicon-exclamation-sign"> </span> </li>
+			    	<li class="list-group-item"> Buy dishwasher detergent</li>
+			    </ul>
+			  </div>
+			</div>
+
+			<!-- Messages Panel --> 
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Messages</h3>
+			  </div>
+			  <div class="panel-body">
+			    <ul class="list-group">
+			    	<li class="list-group-item"> <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <b>Ya Chutiraka</b> <br/> <i> Hey, did you get that assignment done?</i></li>
+			    	<li class="list-group-item"> <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> Shannon Cruz <br/> <i>Did you get the file I sent to you yesterday?</i></li>
+			    </ul>
+			  </div>
+			</div>
+		</div>
+
+		<!-- Second column --> 
+		<div class="col-md-4">
+			<!-- Tasks Panel --> 
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Tasks</h3>
+			  </div>
+			  <div class="panel-body">
+			  	<h4> Service Group </h4>
+			    <ul class="list-group">
+				  <li class="list-group-item alert-success"> <button type="button" ng-click="helloWorld()" class="btn btn-success btn-xs" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					</button> Call Humane Society </li>
+				  <li class="list-group-item"> <button type="button" ng-click="helloWorld()" class="btn btn-default btn-xs" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					</button> Turn in service hours form </li>
+				</ul>
+				<h4> Club Sport </h4>
+			    <ul class="list-group">
+				  <li class="list-group-item"><button type="button" ng-click="helloWorld()" class="btn btn-default btn-xs" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					</button> Sign up for Gator Classic Tournament</li>
+				  <li class="list-group-item alert-success"><button type="button"  ng-click="helloWorld()"class="btn btn-success btn-xs" aria-label="Left Align">
+					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+					</button> Reserve courts for tournament </li>
+				</ul>
+			  </div>
+			</div>
+
+			<!-- Distribution Panel --> 
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Distribution</h3>
+			  </div>
+			  <div class="panel-body">
+			    <img src="http://www.pcapredict.com/Content/Assets/Landing/Google%20guide/google-analytics-pie-chart.png">
+			  </div>
+			</div>
+		</div>
+
+		<!-- Third column --> 
+		<div class="col-md-4">
+			<!-- Events Panel --> 
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title">Upcoming Events</h3>
+			  </div>
+			  <!-- Table -->
+			  <table class="table">
+			  	<caption><h4>Saturday, Mar 11</h4></caption>
+				  <thead>
+				      <tr>
+				         <th>Time</th>
+				         <th>Event</th>
+				         <th>Location</th>
+				      </tr>
+				   </thead>
+
+				   <tbody>
+				   	  <tr>
+				   	  	<td>8:00 AM</td>
+				   	  	<td>Match 1</td>
+				   	  	<td>Flavet, Court 1</td>
+				   	  </tr>
+				   	  <tr>
+				   	  	<td>10:00 AM</td>
+				   	  	<td>Match 2</td>
+				   	  	<td>Flavet, Court 4</td>
+				   	  </tr>
+				   </tbody>
+			  </table>
+
+			  <table class="table">
+			  	<caption><h4>Monday, Mar 12</h4></caption>
+				  <thead>
+				      <tr>
+				         <th>Time</th>
+				         <th>Event</th>
+				         <th>Location</th>
+				      </tr>
+				   </thead>
+
+				   <tbody>
+				   	  <tr>
+				   	  	<td>2:00 PM</td>
+				   	  	<td>Project 1 Meeting</td>
+				   	  	<td>Marston Basement</td>
+				   	  </tr>
+				   </tbody>
+			  </table>
+			</div>
+
+			<!-- Files Panel --> 
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Files</h3>
+			  </div>
+			  <div class="panel-body">
+			    <ul class="list-group">
+			    	<li class="list-group-item"> <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Service Group </li>
+				    	<li class="list-group-item"> 
+				    		<ul class="list-group">  
+				    			<li class="list-group-item"> <span class="glyphicon glyphicon-file" aria-hidden="true"></span> servicehoursform.pdf </li> 
+				    			<li class="list-group-item"> <span class="glyphicon glyphicon-file" aria-hidden="true"></span> volunteer_waiver.pdf </li> 
+				    		</ul>
+				    	</li>
+			    	<li class="list-group-item"> <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> Club Sport</li>
+			    	<li class="list-group-item"> <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> Sorority</li>
+			    </ul>
+			  </div>
+			</div>
+		</div>
+
 	</div>
-</nav>
-
-<div class="container">
-	<!-- First column --> 
-	<div class="col-md-4">
-		<!-- Progress Panel --> 
-		<div class="panel panel-default">
-		  <div class="panel-heading">
-		    <h3 class="panel-title">Progress</h3>
-		  </div>
-		  <div class="panel-body">
-		    <img src = http://www.conceptdraw.com/samples/resource/images/solutions/project-management-diagrams/Project-Management-Release-Burndown-Chart-Example.png>
-		  </div>
-		</div>
-
-		<!-- Reminders Panel --> 
-		<div class="panel panel-default">
-		  <div class="panel-heading">
-		    <h3 class="panel-title">Reminders</h3>
-		  </div>
-		  <div class="panel-body">
-		    <ul class="list-group">
-		    	<li class="list-group-item alert-danger"> <b>Homework 1, Cryptology</b> Due 6:00 PM <span class="glyphicon glyphicon-exclamation-sign"> </span> </li>
-		    	<li class="list-group-item alert-danger"> <b>Turn in service hours form</b> Due 11:59 PM <span class="glyphicon glyphicon-exclamation-sign"> </span> </li>
-		    	<li class="list-group-item"> Buy dishwasher detergent</li>
-		    </ul>
-		  </div>
-		</div>
-
-		<!-- Messages Panel --> 
-		<div class="panel panel-default">
-		  <div class="panel-heading">
-		    <h3 class="panel-title">Messages</h3>
-		  </div>
-		  <div class="panel-body">
-		    <ul class="list-group">
-		    	<li class="list-group-item"> <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <b>Ya Chutiraka</b> <br/> <i> Hey, did you get that assignment done?</i></li>
-		    	<li class="list-group-item"> <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span> Shannon Cruz <br/> <i>Did you get the file I sent to you yesterday?</i></li>
-		    </ul>
-		  </div>
-		</div>
-	</div>
-
-	<!-- Second column --> 
-	<div class="col-md-4">
-		<!-- Tasks Panel --> 
-		<div class="panel panel-default">
-		  <div class="panel-heading">
-		    <h3 class="panel-title">Tasks</h3>
-		  </div>
-		  <div class="panel-body">
-		  	<h4> Service Group </h4>
-		    <ul class="list-group">
-			  <li class="list-group-item alert-success"> <button type="button" class="btn btn-success btn-xs" aria-label="Left Align">
-				  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				</button> Call Humane Society </li>
-			  <li class="list-group-item"> <button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
-				  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				</button> Turn in service hours form </li>
-			</ul>
-			<h4> Club Sport </h4>
-		    <ul class="list-group">
-			  <li class="list-group-item"><button type="button" class="btn btn-default btn-xs" aria-label="Left Align">
-				  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				</button> Sign up for Gator Classic Tournament</li>
-			  <li class="list-group-item alert-success"><button type="button" class="btn btn-success btn-xs" aria-label="Left Align">
-				  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				</button> Reserve courts for tournament </li>
-			</ul>
-		  </div>
-		</div>
-
-		<!-- Distribution Panel --> 
-		<div class="panel panel-default">
-		  <div class="panel-heading">
-		    <h3 class="panel-title">Distribution</h3>
-		  </div>
-		  <div class="panel-body">
-		    <img src="http://www.pcapredict.com/Content/Assets/Landing/Google%20guide/google-analytics-pie-chart.png">
-		  </div>
-		</div>
-	</div>
-
-	<!-- Third column --> 
-	<div class="col-md-4">
-		<!-- Events Panel --> 
-		<div class="panel panel-default">
-		  <div class="panel-heading">
-		  	<h3 class="panel-title">Upcoming Events</h3>
-		  </div>
-		  <!-- Table -->
-		  <table class="table">
-		  	<caption><h4>Saturday, Mar 11</h4></caption>
-			  <thead>
-			      <tr>
-			         <th>Time</th>
-			         <th>Event</th>
-			         <th>Location</th>
-			      </tr>
-			   </thead>
-
-			   <tbody>
-			   	  <tr>
-			   	  	<td>8:00 AM</td>
-			   	  	<td>Match 1</td>
-			   	  	<td>Flavet, Court 1</td>
-			   	  </tr>
-			   	  <tr>
-			   	  	<td>10:00 AM</td>
-			   	  	<td>Match 2</td>
-			   	  	<td>Flavet, Court 4</td>
-			   	  </tr>
-			   </tbody>
-		  </table>
-
-		  <table class="table">
-		  	<caption><h4>Monday, Mar 12</h4></caption>
-			  <thead>
-			      <tr>
-			         <th>Time</th>
-			         <th>Event</th>
-			         <th>Location</th>
-			      </tr>
-			   </thead>
-
-			   <tbody>
-			   	  <tr>
-			   	  	<td>2:00 PM</td>
-			   	  	<td>Project 1 Meeting</td>
-			   	  	<td>Marston Basement</td>
-			   	  </tr>
-			   </tbody>
-		  </table>
-		</div>
-
-		<!-- Files Panel --> 
-		<div class="panel panel-default">
-		  <div class="panel-heading">
-		    <h3 class="panel-title">Files</h3>
-		  </div>
-		  <div class="panel-body">
-		    <ul class="list-group">
-		    	<li class="list-group-item"> <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Service Group </li>
-			    	<li class="list-group-item"> 
-			    		<ul class="list-group">  
-			    			<li class="list-group-item"> <span class="glyphicon glyphicon-file" aria-hidden="true"></span> servicehoursform.pdf </li> 
-			    			<li class="list-group-item"> <span class="glyphicon glyphicon-file" aria-hidden="true"></span> volunteer_waiver.pdf </li> 
-			    		</ul>
-			    	</li>
-		    	<li class="list-group-item"> <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> Club Sport</li>
-		    	<li class="list-group-item"> <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> Sorority</li>
-		    </ul>
-		  </div>
-		</div>
-	</div>
-
 </div>
 
 
