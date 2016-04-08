@@ -8,3 +8,19 @@ body {
 img {
 	max-width: 100%;
 }
+
+.panel-red {
+	background-color: #dd5151;
+}
+
+.panel-yellow {
+	background-color: #e9ea90
+}
+
+.panel-gray {
+	background-color: #c1c1b8
+}
+
+.panel-green {
+	background-color: #799758
+}
