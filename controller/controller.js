@@ -9,7 +9,11 @@ myApp.controller('MainCtrl', function($scope){
 		COMPLETE: 3,
 	};
 
-	$scope.name = "Stephanie"; // testing this right now 
+	$scope.name = "Stephanie"; // testing this right now
+	$scope.newEvent = "";
+	$scope.newEventDate = "";
+	$scope.newEventTime = "";
+	$scope.newEventLocation = "";
 
 	$scope.tasks = [
 		{
@@ -57,5 +61,19 @@ myApp.controller('MainCtrl', function($scope){
 
 	$scope.addTask = function() {
 		// here we need to make sure to add this task to the tasks array
+	};
+
+	$scope.addEvent = function() {
+		console.log("adding a new event");
+		$scope.events.push({
+			text: $scope.newEvent,
+			date: $scope.newEventDate,
+			time: $scope.newEventTime,
+			location: $scope.newEventLocation
+		});
+		$scope.newEvent = "";
+		$scope.newEventDate = "";
+		$scope.newEventTime = "";
+		$scope.newEventLocation = "";
 	};
 });
