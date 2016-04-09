@@ -26,6 +26,10 @@
 		</div>
 	</nav>
 
+	<div class="page-header gp-head"> 
+	<h1> <span ng-bind="name">{{name}}</span>'s Dashboard</h1>
+	</div>
+
 	<div class="container">
 		<!-- First column --> 
 		<div class="col-md-4">
@@ -75,23 +79,21 @@
 			    <h3 class="panel-title">Tasks</h3>
 			  </div>
 			  <div class="panel-body">
+			  <!-- We'll have one of these groups be hard-coded for the prototype sake -->
 			  	<h4> Service Group </h4>
 			    <ul class="list-group">
 				  <li class="list-group-item alert-success"> <button type="button" ng-click="helloWorld()" class="btn btn-success btn-xs" aria-label="Left Align">
 					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-					</button> Call Humane Society </li>
+					</button> Call Humane Society  </li>
 				  <li class="list-group-item"> <button type="button" ng-click="helloWorld()" class="btn btn-default btn-xs" aria-label="Left Align">
 					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 					</button> Turn in service hours form </li>
 				</ul>
-				<h4> Club Sport </h4>
-			    <ul class="list-group">
-				  <li class="list-group-item"><button type="button" ng-click="helloWorld()" class="btn btn-default btn-xs" aria-label="Left Align">
-					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-					</button> Sign up for Gator Classic Tournament</li>
-				  <li class="list-group-item alert-success"><button type="button"  ng-click="helloWorld()"class="btn btn-success btn-xs" aria-label="Left Align">
-					  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-					</button> Reserve courts for tournament </li>
+
+				<h4> Group Name </h4> <!-- we should have these be of the created group -->
+				<ul class="list-group">
+					<li class="list-group-item" ng-repeat="task in tasks"> <button type="button" ng-click="quickComplete($index)" class="btn btn-default btn-xs" aria-label="Left Align"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button> <span>{{task.text}}</span>
+					</li>
 				</ul>
 			  </div>
 			</div>
@@ -109,12 +111,42 @@
 
 		<!-- Third column --> 
 		<div class="col-md-4">
+
 			<!-- Events Panel --> 
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	<h3 class="panel-title">Upcoming Events</h3>
+			  	<h3 class="panel-title">Upcoming Events
+
+			  	<!-- Button trigger modal to add new event-->
+				<button type="button" class="btn btn-default btn-xs pull-right" data-toggle="modal" data-target="#myModal">
+				  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				</button>
+				</h3>
+
 			  </div>
-			  <!-- Table -->
+
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="myModalLabel">Create New Event</h4>
+				      </div>
+				      <div class="modal-body">
+				        <div class="input-group input-group-md">
+						  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
+						</div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        <button type="button" class="btn btn-primary">Save changes</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
+			  <!-- Table (Hardcoded) -->
 			  <table class="table">
 			  	<caption><h4>Saturday, Mar 11</h4></caption>
 				  <thead>
@@ -139,25 +171,28 @@
 				   </tbody>
 			  </table>
 
-			  <table class="table">
-			  	<caption><h4>Monday, Mar 12</h4></caption>
-				  <thead>
-				      <tr>
-				         <th>Time</th>
-				         <th>Event</th>
-				         <th>Location</th>
-				      </tr>
-				   </thead>
+			  <!-- Table -->
+				<table class="table">
+				  	<caption><h4>Sunday, Apr 10</h4></caption>
+					  <thead>
+					      <tr>
+					         <th>Time</th>
+					         <th>Event</th>
+					         <th>Location</th>
+					      </tr>
+					   </thead>
 
-				   <tbody>
-				   	  <tr>
-				   	  	<td>2:00 PM</td>
-				   	  	<td>Project 1 Meeting</td>
-				   	  	<td>Marston Basement</td>
-				   	  </tr>
-				   </tbody>
-			  </table>
+					   <tbody>
+					   	  <tr ng-repeat="event in events">
+					   	  	<td>{{event.time}}</td>
+					   	  	<td>{{event.text}}</td>
+					   	  	<td>{{event.location}}</td>
+					   	  </tr>
+					   </tbody>
+				 </table>
+
 			</div>
+
 
 			<!-- Files Panel --> 
 			<div class="panel panel-default">
@@ -179,7 +214,6 @@
 			  </div>
 			</div>
 		</div>
-
 	</div>
 </div>
 

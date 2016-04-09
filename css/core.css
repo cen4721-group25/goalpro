@@ -2,11 +2,18 @@
 
 body {
 	background-color: #393939;
-	padding-top: 70px;
+	padding-top: 30px;
 }
 
 img {
 	max-width: 100%;
+}
+
+.gp-head {
+	background-color: #f8f8f8;
+	color: #393939; 
+	padding-top: 1px;
+	padding-left: 10px;
 }
 
 .panel-red {
