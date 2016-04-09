@@ -116,7 +116,7 @@
 			  <div class="panel-heading">
 			  	<h3 class="panel-title">Upcoming Events</h3>
 			  </div>
-			  <!-- Table -->
+			  <!-- Table (Hardcoded) -->
 			  <table class="table">
 			  	<caption><h4>Saturday, Mar 11</h4></caption>
 				  <thead>
@@ -141,25 +141,28 @@
 				   </tbody>
 			  </table>
 
-			  <table class="table">
-			  	<caption><h4>Monday, Mar 12</h4></caption>
-				  <thead>
-				      <tr>
-				         <th>Time</th>
-				         <th>Event</th>
-				         <th>Location</th>
-				      </tr>
-				   </thead>
+			  <!-- Table -->
+				<table class="table">
+				  	<caption><h4>Sunday, Apr 10</h4></caption>
+					  <thead>
+					      <tr>
+					         <th>Time</th>
+					         <th>Event</th>
+					         <th>Location</th>
+					      </tr>
+					   </thead>
 
-				   <tbody>
-				   	  <tr>
-				   	  	<td>2:00 PM</td>
-				   	  	<td>Project 1 Meeting</td>
-				   	  	<td>Marston Basement</td>
-				   	  </tr>
-				   </tbody>
-			  </table>
+					   <tbody>
+					   	  <tr ng-repeat="event in events">
+					   	  	<td>{{event.time}}</td>
+					   	  	<td>{{event.text}}</td>
+					   	  	<td>{{event.location}}</td>
+					   	  </tr>
+					   </tbody>
+				 </table>
+
 			</div>
+
 
 			<!-- Files Panel --> 
 			<div class="panel panel-default">

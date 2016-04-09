@@ -10,7 +10,7 @@ myApp.controller('MainCtrl', function($scope){
 	};
 
 	$scope.name = "Stephanie"; // testing this right now 
-	
+
 	$scope.tasks = [
 		{
 			text: "Task 1",
@@ -23,6 +23,21 @@ myApp.controller('MainCtrl', function($scope){
 	];
 
 	$scope.complete = [];
+
+	$scope.events = [
+		{
+			text: "Club Meeting",
+			date: "4/10/2016",
+			time: "8:00 AM",
+			location: "Marston, Neon"
+		},
+		{
+			text: "MeowMeowMeow",
+			date: "4/10/2016",
+			time: "8:00 AM",
+			location: "Gainesvegas"
+		}
+	];
 
 	$scope.helloWorld = function() {
 		console.log("i hope this works");
