@@ -58,6 +58,4 @@ myApp.controller('MainCtrl', function($scope){
 	$scope.addTask = function() {
 		// here we need to make sure to add this task to the tasks array
 	};
-
-	$scope.addEvent = function()
 });
