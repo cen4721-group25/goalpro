@@ -17,11 +17,11 @@ myApp.controller('MainCtrl', function($scope){
 
 	$scope.tasks = [
 		{
-			text: "Task 1",
+			text: "Create Presentation 1",
 			taskStatus: taskStatus.INPROGRESS
 		},
 		{
-			text: "Next Task 2",
+			text: "Extra Credit Assignment, Problem 3",
 			taskStatus: taskStatus.INPROGRESS
 		}
 	];
@@ -36,10 +36,10 @@ myApp.controller('MainCtrl', function($scope){
 			location: "Marston, Neon"
 		},
 		{
-			text: "MeowMeowMeow",
+			text: "Tennis Practice",
 			date: "4/10/2016",
-			time: "8:00 AM",
-			location: "Gainesvegas"
+			time: "6:00 PM",
+			location: "Flavet Courts"
 		}
 	];
 
