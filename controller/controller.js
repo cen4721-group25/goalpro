@@ -15,6 +15,9 @@ myApp.controller('MainCtrl', function($scope){
 	$scope.newEventTime = "";
 	$scope.newEventLocation = "";
 
+	$scope.graphCounter = 3;
+	$scope.increment = false;
+
 	$scope.tasks = [
 		{
 			text: "Create Presentation 1",
@@ -57,10 +60,26 @@ myApp.controller('MainCtrl', function($scope){
 		$scope.tasks.splice(index, 1);
 		console.log("Completed: " + item.text);
 		console.log($scope.complete);
+		$scope.increment = 0;
+		$scope.updateGraph();
 	};
 
 	$scope.addTask = function() {
 		// here we need to make sure to add this task to the tasks array
+		$scope.increment = 1;
+		$scope.updateGraph();
+	};
+
+	$scope.updateGraph = function() {
+		if($scope.increment == 0) {
+			if($scope.graphCounter != "5") {
+				$scope.graphCounter++;
+			}
+		} else {
+			if($scope.graphCounter != "1") {
+				$scope.graphCounter--;
+			}
+		}
 	};
 
 	$scope.addEvent = function() {
