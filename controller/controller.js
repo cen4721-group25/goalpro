@@ -6,23 +6,42 @@ myApp.controller('MainCtrl', function($scope){
 		NOTSTARTED: 0,
 		INPROGRESS: 1,
 		BLOCKED: 2,
-		COMPLETE: 3,
+		COMPLETE: 3
 	};
 
-	$scope.name = "Stephanie"; // testing this right now 
+	$scope.name = "Stephanie"; // testing this right now
+	$scope.newEvent = "";
+	$scope.newEventDate = "";
+	$scope.newEventTime = "";
+	$scope.newEventLocation = "";
+
+	$scope.graphCounter = 3;
+	$scope.increment = false;
 
 	$scope.tasks = [
 		{
 			text: "Task 1",
-			taskStatus: taskStatus.INPROGRESS
+			taskStatus: taskStatus.BLOCKED
 		},
 		{
 			text: "Next Task 2",
+			taskStatus: taskStatus.NOTSTARTED
+		},
+		{
+			text: "Create Presentation 1",
+			taskStatus: taskStatus.INPROGRESS
+		},
+		{
+			text: "Extra Credit Assignment, Problem 3",
 			taskStatus: taskStatus.INPROGRESS
 		}
 	];
 
+	$scope.taskStatuses = taskStatus;
 	$scope.complete = [];
+
+	$scope.newTask = "";
+	$scope.newTaskStatus = taskStatus.NOTSTARTED;
 
 	$scope.events = [
 		{
@@ -32,10 +51,10 @@ myApp.controller('MainCtrl', function($scope){
 			location: "Marston, Neon"
 		},
 		{
-			text: "MeowMeowMeow",
+			text: "Tennis Practice",
 			date: "4/10/2016",
-			time: "8:00 AM",
-			location: "Gainesvegas"
+			time: "6:00 PM",
+			location: "Flavet Courts"
 		}
 	];
 
@@ -53,9 +72,81 @@ myApp.controller('MainCtrl', function($scope){
 		$scope.tasks.splice(index, 1);
 		console.log("Completed: " + item.text);
 		console.log($scope.complete);
+		$scope.increment = 0;
+		$scope.updateGraph();
 	};
 
 	$scope.addTask = function() {
-		// here we need to make sure to add this task to the tasks array
+		console.log("Add a new task");
+		if ($scope.newTask !== "")
+		{
+			$scope.tasks.push({
+				text: $scope.newTask,
+				taskStatus: $scope.newTaskStatus
+			});
+			$scope.newTask = "";
+			$scope.newTaskStatus = taskStatus.NOTSTARTED;
+			$scope.increment = 1;
+			$scope.updateGraph();
+		}
+	};
+
+	$scope.completeTask = function(index) {
+		$scope.newTask = $scope.tasks[index].text;
+		$scope.newTaskStatus = taskStatus.COMPLETE;
+		$scope.addTask();
+		$scope.deleteTask(index);
+	};
+
+	$scope.blockTask = function(index) {
+		$scope.newTask = $scope.tasks[index].text;
+		$scope.newTaskStatus = taskStatus.BLOCKED;
+		$scope.addTask();
+		$scope.deleteTask(index);
+	};
+
+	$scope.inProgressTask = function(index) {
+		$scope.newTask = $scope.tasks[index].text;
+		$scope.newTaskStatus = taskStatus.INPROGRESS;
+		$scope.addTask();
+		$scope.deleteTask(index);
+	};
+
+	$scope.notStartedTask = function(index) {
+		$scope.newTask = $scope.tasks[index].text;
+		$scope.newTaskStatus = taskStatus.NOTSTARTED;
+		$scope.addTask();
+		$scope.deleteTask(index);
+	};
+
+	$scope.deleteTask = function(index) {
+		console.log("in delete");
+		$scope.tasks.splice(index, 1);
+	};
+
+	$scope.updateGraph = function() {
+		if($scope.increment == 0) {
+			if($scope.graphCounter != "5") {
+				$scope.graphCounter++;
+			}
+		} else {
+			if($scope.graphCounter != "1") {
+				$scope.graphCounter--;
+			}
+		}
+	};
+
+	$scope.addEvent = function() {
+		console.log("adding a new event");
+		$scope.events.push({
+			text: $scope.newEvent,
+			date: $scope.newEventDate,
+			time: $scope.newEventTime,
+			location: $scope.newEventLocation
+		});
+		$scope.newEvent = "";
+		$scope.newEventDate = "";
+		$scope.newEventTime = "";
+		$scope.newEventLocation = "";
 	};
 });
