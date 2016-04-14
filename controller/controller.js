@@ -9,7 +9,14 @@ myApp.controller('MainCtrl', function($scope){
 		COMPLETE: 3
 	};
 
-	$scope.name = "Stephanie"; // testing this right now 
+	$scope.name = "Stephanie"; // testing this right now
+	$scope.newEvent = "";
+	$scope.newEventDate = "";
+	$scope.newEventTime = "";
+	$scope.newEventLocation = "";
+
+	$scope.graphCounter = 3;
+	$scope.increment = false;
 
 	$scope.tasks = [
 		{
@@ -19,6 +26,14 @@ myApp.controller('MainCtrl', function($scope){
 		{
 			text: "Next Task 2",
 			taskStatus: taskStatus.NOTSTARTED
+		},
+		{
+			text: "Create Presentation 1",
+			taskStatus: taskStatus.INPROGRESS
+		},
+		{
+			text: "Extra Credit Assignment, Problem 3",
+			taskStatus: taskStatus.INPROGRESS
 		}
 	];
 
@@ -36,10 +51,10 @@ myApp.controller('MainCtrl', function($scope){
 			location: "Marston, Neon"
 		},
 		{
-			text: "MeowMeowMeow",
+			text: "Tennis Practice",
 			date: "4/10/2016",
-			time: "8:00 AM",
-			location: "Gainesvegas"
+			time: "6:00 PM",
+			location: "Flavet Courts"
 		}
 	];
 
@@ -57,6 +72,8 @@ myApp.controller('MainCtrl', function($scope){
 		$scope.tasks.splice(index, 1);
 		console.log("Completed: " + item.text);
 		console.log($scope.complete);
+		$scope.increment = 0;
+		$scope.updateGraph();
 	};
 
 	$scope.addTask = function() {
@@ -69,6 +86,8 @@ myApp.controller('MainCtrl', function($scope){
 			});
 			$scope.newTask = "";
 			$scope.newTaskStatus = taskStatus.NOTSTARTED;
+			$scope.increment = 1;
+			$scope.updateGraph();
 		}
 	};
 
@@ -103,5 +122,31 @@ myApp.controller('MainCtrl', function($scope){
 	$scope.deleteTask = function(index) {
 		console.log("in delete");
 		$scope.tasks.splice(index, 1);
+	};
+
+	$scope.updateGraph = function() {
+		if($scope.increment == 0) {
+			if($scope.graphCounter != "5") {
+				$scope.graphCounter++;
+			}
+		} else {
+			if($scope.graphCounter != "1") {
+				$scope.graphCounter--;
+			}
+		}
+	};
+
+	$scope.addEvent = function() {
+		console.log("adding a new event");
+		$scope.events.push({
+			text: $scope.newEvent,
+			date: $scope.newEventDate,
+			time: $scope.newEventTime,
+			location: $scope.newEventLocation
+		});
+		$scope.newEvent = "";
+		$scope.newEventDate = "";
+		$scope.newEventTime = "";
+		$scope.newEventLocation = "";
 	};
 });
